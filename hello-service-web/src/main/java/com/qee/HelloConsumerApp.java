@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class HelloComsumerApp {
+public class HelloConsumerApp {
 
     @Bean
     Logger.Level feginLoggerLevel(){
@@ -21,6 +21,6 @@ public class HelloComsumerApp {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloComsumerApp.class, args);
+        SpringApplication.run(HelloConsumerApp.class, args);
     }
 }
