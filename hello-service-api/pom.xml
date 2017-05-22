@@ -9,7 +9,6 @@
     <groupId>com.qee.hello</groupId>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>

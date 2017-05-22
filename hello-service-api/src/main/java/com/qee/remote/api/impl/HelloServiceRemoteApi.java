@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by hzzhuqi1 on 2017/5/22.
  */
-@RequestMapping("/hello-test-web")
+@RequestMapping("/hello-service-remote")
 public interface HelloServiceRemoteApi {
 
     @RequestMapping(value = "/hello1", method = RequestMethod.GET)
@@ -18,6 +18,5 @@ public interface HelloServiceRemoteApi {
 
     @RequestMapping(value = "/hello3", method = RequestMethod.POST)
     String hello(@RequestBody User user);
-
 
 }
