@@ -4,6 +4,7 @@ import com.qee.remote.model.User;
 import com.qee.service.HelloBackgroundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
@@ -28,6 +29,7 @@ public class HelloController {
 
 
     @RequestMapping("/hello")
+    @ResponseBody
     public Map<String,Object> hello(){
         Map<String,Object> ret = new HashMap<String, Object>();
         StringBuffer sb = new StringBuffer();
@@ -47,6 +49,7 @@ public class HelloController {
     }
 
     @RequestMapping("/cycleDo")
+    @ResponseBody
     public Map<String,Object> cycleDo() throws ExecutionException, InterruptedException {
         Map<String,Object> maps = new ConcurrentHashMap<String, Object>();
         for (int i=1;i<50;i++){

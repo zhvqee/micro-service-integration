@@ -1,4 +1,4 @@
-package com.qee.remote.api.impl;
+package com.qee.remote.api;
 import com.qee.remote.model.User;
 import org.springframework.web.bind.annotation.*;
 

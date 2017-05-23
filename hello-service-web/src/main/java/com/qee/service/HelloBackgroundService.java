@@ -1,6 +1,6 @@
 package com.qee.service;
 
-import com.qee.remote.api.impl.HelloServiceRemoteApi;
+import com.qee.remote.api.HelloServiceRemoteApi;
 import org.springframework.cloud.netflix.feign.FeignClient;
 
 /**

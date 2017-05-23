@@ -1,5 +1,6 @@
 package com.qee.remote.api.impl;
 
+import com.qee.remote.api.HelloServiceRemoteApi;
 import com.qee.remote.model.User;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;

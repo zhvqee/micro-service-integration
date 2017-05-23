@@ -1,9 +1,10 @@
 package com.qee.controller;
 
-import com.qee.remote.api.impl.HelloServiceRemoteApi;
+import com.qee.remote.api.HelloServiceRemoteApi;
 import com.qee.remote.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
@@ -21,6 +22,7 @@ public class Hello2Controller {
     private HelloServiceRemoteApi helloServiceRemoteApi;
 
     @RequestMapping("/hello2")
+    @ResponseBody
     public Map<String,Object> hello(){
         Map<String,Object> ret = new HashMap<String, Object>();
         StringBuffer sb = new StringBuffer();
