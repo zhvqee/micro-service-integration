@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Component
 public class WorldServiceFallBack implements WorldHystrixBackgroundService {
 
+
     @Override
-    public String worldHystrix(@RequestParam("name") String name){
+    public String worldHystrix(@RequestParam("name") String name) {
         return "error";
     }
 }

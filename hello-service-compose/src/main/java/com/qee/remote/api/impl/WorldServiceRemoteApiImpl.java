@@ -22,11 +22,11 @@ public class WorldServiceRemoteApiImpl implements WorldServiceRemoteApi {
         ServiceInstance serviceInstance =client.getLocalServiceInstance();
         Random random = new Random();
        // int sleepTime = random.nextInt(3000);
-        try {
+       /* try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         String msg=serviceInstance.getHost()+":"+serviceInstance.getPort()+"   "+serviceInstance.getServiceId()+"  "+serviceInstance.getMetadata();
         return msg+"=="+name;
     }

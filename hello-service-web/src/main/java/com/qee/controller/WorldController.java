@@ -17,7 +17,7 @@ import java.util.Map;
 public class WorldController {
 
     @Autowired
-    @Qualifier("worldHystrixBackgroundService")
+   // @Qualifier("worldHystrixBackgroundService")
     private WorldHystrixBackgroundService worldHystrixBackgroundService;
 
 
