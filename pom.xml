@@ -13,6 +13,8 @@
         <module>hello-service-api</module>
         <module>hello-service-compose</module>
         <module>hello-service-web</module>
+        <module>hystrix-dashboard-web</module>
+        <module>turbine-service-compose</module>
     </modules>
 
     <name>micro-service-integration</name>
