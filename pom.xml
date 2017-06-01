@@ -17,6 +17,7 @@
         <module>turbine-service-compose</module>
         <module>configuration-center-web</module>
         <module>config-service-web</module>
+        <module>sleuth-service-web</module>
     </modules>
 
     <name>micro-service-integration</name>
