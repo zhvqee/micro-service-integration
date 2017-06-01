@@ -1,7 +1,9 @@
 package com.qee.remote.api.impl;
 
+import com.qee.remote.anqp.RabbitmqSender;
 import com.qee.remote.api.HelloServiceRemoteApi;
 import com.qee.remote.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +18,12 @@ import java.net.URLDecoder;
 @RestController
 public class HelloServiceRemoteApiImpl implements HelloServiceRemoteApi {
 
+    @Autowired
+    private RabbitmqSender sender;
+
     @Override
     public String hello(@RequestParam("name") String name) {
+        sender.send(name);
         return "hello " + name;
     }
 
