@@ -18,6 +18,7 @@
         <module>configuration-center-web</module>
         <module>config-service-web</module>
         <module>zipkin-service-web</module>
+        <module>zuul-gateway-web</module>
     </modules>
 
     <name>micro-service-integration</name>
@@ -46,4 +47,27 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+  <!--  <repositories>
+        <repository>
+            <id>jboss-cache</id>
+            <name>jboss-cache</name>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+        <repository>
+            <id>mvnsearch</id>
+            <name>mvnsearch Maven Repository</name>
+            <url>http://www.mvnsearch.org/maven2</url>
+        </repository>
+        <repository>
+            <id>ibiblio</id>
+            <name>ibiblio Maven Repository</name>
+            <url>http://www.ibiblio.org/maven2</url>
+        </repository>
+        <repository>
+            <id>mirrors.ibiblio</id>
+            <name>mirrors.ibiblio Maven Repository</name>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+        </repository>
+    </repositories>-->
 </project>
