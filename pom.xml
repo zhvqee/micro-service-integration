@@ -19,6 +19,7 @@
         <module>config-service-web</module>
         <module>zipkin-service-web</module>
         <module>zuul-gateway-web</module>
+        <module>zuul-gateway-dynamic-web</module>
     </modules>
 
     <name>micro-service-integration</name>
