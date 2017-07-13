@@ -40,4 +40,16 @@ public class Hello2Controller {
         ret.put("show",sb.toString());
         return ret;
     }
+
+    @RequestMapping("/receive")
+    @ResponseBody
+    public Map<String,Object> receive(){
+        Map<String,Object> ret = new HashMap<String, Object>();
+        String receive = helloServiceRemoteApi.receive();
+        ret.put("show",receive);
+        return ret;
+    }
+
+
+
 }

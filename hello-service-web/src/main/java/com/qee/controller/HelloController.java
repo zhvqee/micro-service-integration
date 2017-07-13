@@ -24,7 +24,7 @@ public class HelloController {
     @Autowired
     private HelloBackgroundService helloBackgroundService;
 
-    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(20,40, 0L, TimeUnit.MILLISECONDS,
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(5,10, 0L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<Runnable>());
 
 
@@ -52,7 +52,7 @@ public class HelloController {
     @ResponseBody
     public Map<String,Object> cycleDo() throws ExecutionException, InterruptedException {
         Map<String,Object> maps = new ConcurrentHashMap<String, Object>();
-        for (int i=1;i<50;i++){
+        for (int i=1;i<100;i++){
             Future<String> task = task();
             System.out.println("===================="+i);
             maps.put("list"+i,task);

@@ -20,10 +20,8 @@ public class WorldServiceRemoteApiImpl implements WorldServiceRemoteApi {
     @Override
     public String worldHystrix(@RequestParam("name") String name) {
         ServiceInstance serviceInstance =client.getLocalServiceInstance();
-        Random random = new Random();
-       // int sleepTime = random.nextInt(3000);
        /* try {
-            Thread.sleep(3000);
+            Thread.sleep(8000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/

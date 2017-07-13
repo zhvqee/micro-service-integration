@@ -30,7 +30,7 @@ public class HelloServiceRemoteApiImpl implements HelloServiceRemoteApi {
     @Override
     public User hello(@RequestHeader("name") String name, @RequestHeader("age") Integer age) {
         try {
-            name= URLDecoder.decode(name,"UTF-8");
+            name = URLDecoder.decode(name, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -43,5 +43,15 @@ public class HelloServiceRemoteApiImpl implements HelloServiceRemoteApi {
             return "未知";
         }
         return user.toString();
+    }
+
+    @Override
+    public String receive() {
+        try {
+            return sender.receive();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

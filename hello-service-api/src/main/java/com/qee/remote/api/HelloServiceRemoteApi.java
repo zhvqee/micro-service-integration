@@ -19,4 +19,7 @@ public interface HelloServiceRemoteApi {
     @RequestMapping(value = "/hello3", method = RequestMethod.POST)
     String hello(@RequestBody User user);
 
+    @RequestMapping(value = "/receive", method = RequestMethod.GET)
+    String receive();
+
 }
