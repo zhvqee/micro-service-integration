@@ -1,0 +1,107 @@
+<template>
+  <div class="main">
+    <div class="headtop"></div>
+    <div class="contenttop">
+      <div class="logo f_l">向前冲！！！</div>
+      <div class="blank"></div>
+
+      <nav>
+        <div class="navigation">
+          <ul class="menu">
+
+            <div v-for="item in theme.topSubjectCatalogueList">
+              <router-link to='item.link'>
+                <li><a>{{item.name}}</a></li>
+              </router-link>
+            </div>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="container">
+      <div class="con_content">
+        <div class="about_box">
+          <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">【深入理解html5系列-文本标签】</a></span><b>【深入理解html5系列-文本标签】</b></h2>
+          <div class="f_box">
+            <p class="a_title">【深入理解html5系列-文本标签】H5新增语义化标签的应用</p>
+            <p class="p_title"></p>
+            <p class="box_p"><span>发布时间：2017-11-04 17:12:42</span><span>作者：谈同</span><span>来源：百度</span><span>点击：16012</span></p>
+          </div>
+          <ul class="about_content">
+            <p>关于html5相信</p>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="f_l">
+          <p>All Rights Reserved 版权所有：<a href="http://blog.leeqee.xyz">个人博客</a></p>
+        </div>
+        <div class="f_r textr">
+          <p></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script>
+
+  import Vue from 'vue';
+  import axios from 'axios';
+  Vue.prototype.$axios = axios;
+
+  export default {
+    // name: 'main',
+    created(){
+      this.getAllArticles();
+      this.getThemeInfo();
+
+
+    },
+    methods: {
+      getAllArticles(){
+        this.$axios.post("/blog/index/getAllArticles",).then(res => {
+          this.articles = res.data.data;
+        });
+      },
+      getThemeInfo(){
+        this.$axios.post("/blog/index/getThemeInfo",).then(res => {
+          this.theme = res.data.data;
+        });
+      }
+    },
+    data () {
+      return {
+
+        theme: {
+          topSubjectCatalogueList: [{
+            name: '',
+            link: '',
+          }],
+          rightSubjectCatalogueList: [{
+            name: '',
+            link: '',
+          }],
+        },
+
+        articles: [{
+          articleId: '',
+          url: '',
+          title: '',
+          content: '',
+          createTime: '',
+          author: '',
+          tags: [],
+          visitCount: 0,
+
+        }],
+        // articles: []
+      }
+    }
+  }
+</script>

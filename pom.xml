@@ -20,6 +20,7 @@
         <module>zipkin-service-web</module>
         <module>zuul-gateway-web</module>
         <module>zuul-gateway-dynamic-web</module>
+        <module>blog-qee-web</module>
     </modules>
 
     <name>micro-service-integration</name>
