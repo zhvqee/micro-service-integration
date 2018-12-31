@@ -10,7 +10,7 @@
           <ul class="menu">
 
             <div v-for="item in theme.topSubjectCatalogueList">
-              <router-link to='item.link'>
+              <router-link :to="{path:item.link}">
                 <li><a>{{item.name}}</a></li>
               </router-link>
             </div>
@@ -20,37 +20,29 @@
 
     </div>
 
-
+    <div class="jztop"></div>
     <div class="container">
-
-      <div class="bloglist f_l">
-        <div v-for="item in articles ">
-          <h3>{{item.title}}</h3>
-          <figure><img v-if="item.images!='' && item.images!=null" src="item.images">
-          </figure>
-          <ul>
-            <p> {{item.content}}</p>
-
-            <router-link :to="{path: 'detail', query: {articleId: item.articleId }}">
-              <a class="readmore">阅读全文&gt;&gt;</a>
-            </router-link>
-
+      <div class="con_content">
+        <div class="about_box">
+          <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">{{article.title}}</a></span>
+          </h2>
+          <div class="f_box">
+            <p class="a_title">{{article.title}}</p>
+            <p class="p_title"></p>
+            <p class="box_p">
+              <span>发布时间：{{getTimeByStamp(article.updateTime)}}</span><span>作者：{{article.author}}</span><span>标签：{{article.tags}}</span><span>点击：{{article.visitCount}}</span></p>
+          </div>
+          <ul class="about_content">
+            <p>{{article.content}}</p>
           </ul>
-          <p class="dateview">
-            <span>{{item.createTime}}</span>
-            <span>作者：{{item.author}}</span>
-            <span>阅读量：{{item.visitCount}}</span>
-            <span>标签：<a href="" v-for="tag in item.tags">[{{tag}}]</a></span>
-          </p>
         </div>
-
 
       </div>
 
 
-
       <!-- container代码 结束 -->
     </div>
+    <div class="jzend"></div>
     <footer>
       <div class="footer">
         <div class="f_l">
@@ -73,21 +65,34 @@
   export default {
     // name: 'main',
     created(){
-      this.getAllArticles();
+      this.getArticleDetail();
       this.getThemeInfo();
 
 
     },
     methods: {
-      getAllArticles(){
-        this.$axios.post("/blog/index/getAllArticles",).then(res => {
-          this.articles = res.data.data;
+      getArticleDetail(){
+        this.$axios.post("/blog/index/getArticleDetail",).then(res => {
+          this.article = res.data.data;
         });
       },
       getThemeInfo(){
         this.$axios.post("/blog/index/getThemeInfo",).then(res => {
           this.theme = res.data.data;
         });
+      },
+      getTimeByStamp (timeStamp) {
+        const timeFilter = (date, split) => {
+          return (date < 10) ? '0' + date + split : date + split
+        }
+        const date = new Date(timeStamp)
+        const Y = date.getFullYear() + '-'
+        const M = timeFilter(date.getMonth() + 1, '-')
+        const D = timeFilter(date.getDate(), ' ')
+        const h = timeFilter(date.getHours(), ':')
+        const m = timeFilter(date.getMinutes(), ':')
+        const s = timeFilter(date.getSeconds(), '')
+        return [Y, M, D, h, m, s].join('')
       }
     },
     data () {
@@ -104,18 +109,18 @@
           }],
         },
 
-        articles: [{
+        article: {
           articleId: '',
           url: '',
           title: '',
           content: '',
           createTime: '',
+          updateTime:'',
           author: '',
           tags: [],
           visitCount: 0,
 
-        }],
-        // articles: []
+        },
       }
     }
   }

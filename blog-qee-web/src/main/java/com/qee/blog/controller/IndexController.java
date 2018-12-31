@@ -31,17 +31,26 @@ public class IndexController {
     @ResponseBody
     public Map<String, Object> receive() {
         Map<String, Object> result = new HashMap<>();
-        List<Article> allArticle = articleService.getAllArticle();
+        List<Article> allArticle = articleService.getAllArticles();
         result.put("data", allArticle);
         return result;
     }
 
     @RequestMapping("/getThemeInfo")
     @ResponseBody
-    public Map<String, Object> index() {
+    public Map<String, Object> getThemeInfo() {
         Map<String, Object> result = new HashMap<>();
         Theme theme = themeService.getTheme();
         result.put("data", theme);
+        return result;
+    }
+
+    @RequestMapping("/getArticleDetail")
+    @ResponseBody
+    public Map<String, Object> getArticleDetail(Integer articleId) {
+        Map<String, Object> result = new HashMap<>();
+        Article detail = articleService.getArticleDetail(articleId);
+        result.put("data", detail);
         return result;
     }
 }

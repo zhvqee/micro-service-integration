@@ -14,5 +14,20 @@ public interface ArticleService {
      *
      * @return
      */
-    List<Article> getAllArticle();
+    List<Article> getAllArticles();
+
+    /**
+     * 通过主题id 获取文章
+     *
+     * @return
+     */
+    List<Article> getArticleBySubjectId();
+
+
+    /**
+     * 文章详情
+     * @param articleId
+     * @return
+     */
+    Article getArticleDetail(Integer articleId);
 }

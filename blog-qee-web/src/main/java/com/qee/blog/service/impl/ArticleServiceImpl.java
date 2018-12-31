@@ -17,8 +17,8 @@ import java.util.Random;
 public class ArticleServiceImpl implements ArticleService {
 
     @Override
-    public List<Article> getAllArticle() {
-        List<Article> result = new ArrayList<Article>();
+    public List<Article> getAllArticles() {
+        List<Article> result = new ArrayList<>();
         for (int i = 1; i <= 2; i++) {
             Article article = new Article();
             article.setArticleId(i);
@@ -32,6 +32,25 @@ public class ArticleServiceImpl implements ArticleService {
             result.add(article);
         }
         return result;
+    }
+
+    @Override
+    public List<Article> getArticleBySubjectId() {
+        return null;
+    }
+
+    @Override
+    public Article getArticleDetail(Integer articleId) {
+        Article article = new Article();
+        article.setArticleId(articleId);
+        article.setTitle("文章内容");
+        article.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        article.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        article.setContent("11111111");
+        article.setAuthor("bird");
+        article.setVisitCount(1000);
+        article.setTags(Arrays.asList("java"));
+        return article;
     }
 
     String getContent() {
