@@ -1,0 +1,258 @@
+@charset "gb2312";
+.container {
+	background: #e5e5e5;
+	overflow: hidden;
+	width: 1000px;
+	margin: auto;
+	border-left: #d2d2d2 1px solid;
+	border-right: #d2d2d2 1px solid;
+}
+input{
+	outline: none;
+}
+
+#SOHUCS #SOHU_MAIN #SOHU-comment-main .section-list-w strong.title-name-bg{
+color:#000;
+}
+
+/* ???¤æ?·é??å§?ï¿½ï¿½???¤æ?·ï¿½ï¿½é??ï¿?/???¤æ?·é???¥ï¿½ï¿½é???¤æ?·ï¿½ï¿½é??ï¿? - å¨?ï¿½é???¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿? */
+#SOHUCS #SOHU_MAIN #SOHU-comment-main .section-list-w .block-title-gw ul{
+border-bottom:2px solid #88abc3;
+background-color:transparent;
+}
+.blank20 {
+	height: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+/*ï¿½ï¿½ï¿½ï¿½??????*/
+/*???¤æ?·ï¿½??ï¿½å¸®?·ï¿½ï¿½ï¿½ï¿½é??å§?ï¿½ã???·ï¿½??·é???¤æ?·ï¿½ï¿½é???¤æ?·æ?ï¿½é???¤æ?·é????ï¿½Ñ??·é??ï¿?*/
+.jztop {
+	background: url(../images/maintopbg.jpg) no-repeat;
+	width: 1034px;
+	margin: auto;
+	height: 14px;
+}
+.jzend {
+	background: url(../images/mainendbg.jpg) no-repeat;
+	width: 1034px;
+	margin: auto;
+	height: 14px;
+}
+/*???¤æ?·é???¤æ??*/
+.bloglist {
+	width: 620px;
+	overflow: hidden;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.bloglist h3 {
+	margin: 20px 0 10px 0;
+	color: #333;
+	font-size: 16px;
+	font-family: "????ï¿½ï¿½??ä»?ï¿½ï¿½???¤æ?·å?¼ï¿½??ï¿?";
+}
+.bloglist figure {
+	float: left;
+	width: 25%;
+}
+.bloglist figure img {
+	padding: 4px;
+	border: #f4f2f2 1px solid;
+	width: 140px;
+}
+.bloglist ul {
+	float: left;
+	width: 70%;
+	margin: 10px 0px 0 15px;
+	line-height: 20px;
+}
+.dateview {
+	width: 100%;
+	overflow: hidden;
+	clear: both;
+	margin: 10px 0 0 0;
+	display: inline-block;
+	background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat;
+	line-height: 26px;
+	height: 26px;
+	color: #838383;
+	padding-left: 25px;
+  text-align: left;
+}
+.dateview span {
+	margin: 0 10px;
+}
+.dateview span a {
+	color: #41607d;
+}
+a.readmore {
+	background: #333;
+	color: #fff;
+	padding: 5px 10px;
+	float: right;
+	margin: 20px 0 0 0
+}
+.r_box {
+	width: 300px;
+	margin: 20px 20px 0 0
+}
+.tit {
+	line-height: 44px;
+	color: #fff;
+	font-size: 18px;
+	height: 44px;
+	background: url(../images/rtitbg.png) no-repeat;
+	padding-left: 40px;
+	margin: 0 0 10px 0
+}
+/* æ¥£å?¡æ?·é????ï¿½ï¿½???¤æ?? */
+.gzwm ul {
+	width: 100%;
+	overflow: hidden;
+}
+.gzwm li {
+	width: 60px;
+	margin: 0 10px 0 5px;
+	float: left;
+}
+.gzwm li a {
+	color: #747F8C;
+	width: 62px;
+	text-align: center;
+	padding-top: 60px;
+	float: left;
+}
+.gzwm .email {
+	background: url(../images/gz02.png) no-repeat;
+}
+.gzwm .qq {
+	background: url(../images/gz03.png) no-repeat;
+}
+.gzwm .tel {
+	background: url(../images/gz01.png) no-repeat;
+}
+.gzwm .prize {
+	background: url(../images/gz04.png) no-repeat;
+}
+.gzwm li a:hover {
+	opacity: 0.6;
+}
+/*????ï¿½é???¤æ?·é???¤æ?·ï¿½??ï¿½ï¿½*/
+.tuwen {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	margin: 20px 0
+}
+.tuwen li {
+	overflow: hidden;
+	clear: both;
+	margin-bottom: 10px
+}
+.tuwen li img {
+	width: 70px;
+	float: left;
+	margin-right: 15px
+}
+.tuwen li b {
+	overflow: hidden;
+	width: 100%;
+	font-weight: normal;
+	color: #333;
+	font-size: 14px;
+	line-height: 30px
+}
+.tuwen li span {
+	color: #999;
+	margin-right: 10px
+}
+.tuwen p {
+	margin-top: 5px
+}
+.tulanmu {
+	background: url(../images/lanmbq.png) no-repeat center left;
+	padding-left: 17px
+}
+.tulanmu a {
+	color: #999;
+}
+.tulanmu a:hover {
+	color: #066
+}
+.tutime {
+	background: url(../images/datepng.png) no-repeat left center;
+	padding-left: 15px
+}
+.tuwen li:hover {
+	background: #f4f3f3
+}
+/*???¤æ?·é???¤æ??*/
+.rank li {
+	height: 25px;
+	line-height: 25px;
+	clear: both;
+	padding-left: 5px;
+	overflow: hidden;
+	padding-left: 15px;
+	background: url(../images/libg.jpg) no-repeat left center;
+}
+.rank {
+	margin: 10px 0
+}
+.rank li a {
+	color: #333;
+}
+.rank li:first-child a {
+	color: #f00;
+	display: block;
+}
+.ph {
+	overflow: hidden
+}
+/*???¤æ?·é??ä»?ï¿½é???¤æ?·ï¿½ï¿½é??ä»?ç®?ï¿½ï¿½?§ï¿½è¹?ï¿? 300*/
+.ad {
+	width: 300px;
+	overflow: hidden;
+	margin: 30px 0
+}
+.ad img {
+	width: 300px;
+}
+
+.comment{
+    width: 1000px;
+    height: auto;
+    margin:auto;
+}
+
+.wrap-word-gw{
+	color:#000;
+}
+
+.area-textarea-w{
+	color:red;
+}
+
+textarea{
+	color:red;
+}
+.wrap-area-w{
+	color:red;
+}
+
+.textarea-fw{
+	color:red;
+}
+
+.service-wrap-w{
+	display:none;
+}
+#SOHUCS #SOHU_MAIN #SOHU-comment-main .section-list-w strong.title-name-bg{
+color:#000;
+}
+
+#SOHUCS #SOHU_MAIN #SOHU-comment-main .section-page-w .page-wrap-gw a,
+#SOHUCS #SOHU_MAIN #SOHU-comment-main .section-page-w .page-wrap-w a{
+color:#000;
+}

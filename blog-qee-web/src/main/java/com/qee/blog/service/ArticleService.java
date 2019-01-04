@@ -21,11 +21,12 @@ public interface ArticleService {
      *
      * @return
      */
-    List<Article> getArticleBySubjectId();
+    List<Article> getArticleBySubjectId(String subjectId);
 
 
     /**
      * 文章详情
+     *
      * @param articleId
      * @return
      */

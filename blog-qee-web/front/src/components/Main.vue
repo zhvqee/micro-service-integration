@@ -92,10 +92,12 @@
 
   export default {
     // name: 'main',
-    created(){
-      this.getAllArticles();
-      this.getThemeInfo();
+    mounted: function () {
 
+      this.$nextTick(function () {
+        this.getAllArticles();
+        this.getThemeInfo();
+      })
 
     },
     methods: {

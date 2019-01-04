@@ -6,6 +6,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Random;
 
 /**
@@ -19,13 +20,13 @@ public class WorldServiceRemoteApiImpl implements WorldServiceRemoteApi {
 
     @Override
     public String worldHystrix(@RequestParam("name") String name) {
-        ServiceInstance serviceInstance =client.getLocalServiceInstance();
+        //ServiceInstance serviceInstance =client.getLocalServiceInstance();
        /* try {
             Thread.sleep(8000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
-        String msg=serviceInstance.getHost()+":"+serviceInstance.getPort()+"   "+serviceInstance.getServiceId()+"  "+serviceInstance.getMetadata();
-        return msg+"=="+name;
+        //  String msg=serviceInstance.getHost()+":"+serviceInstance.getPort()+"   "+serviceInstance.getServiceId()+"  "+serviceInstance.getMetadata();
+        return null;
     }
 }

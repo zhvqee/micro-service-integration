@@ -24,13 +24,15 @@
     <div class="container">
       <div class="con_content">
         <div class="about_box">
-          <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">{{article.title}}</a></span>
+          <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#"
+                                                                                 target="_blank">{{article.title}}</a></span>
           </h2>
           <div class="f_box">
             <p class="a_title">{{article.title}}</p>
             <p class="p_title"></p>
             <p class="box_p">
-              <span>发布时间：{{getTimeByStamp(article.updateTime)}}</span><span>作者：{{article.author}}</span><span>标签：{{article.tags}}</span><span>点击：{{article.visitCount}}</span></p>
+              <span>发布时间：{{getTimeByStamp(article.updateTime)}}</span><span>作者：{{article.author}}</span><span>标签：{{article.tags}}</span><span>点击：{{article.visitCount}}</span>
+            </p>
           </div>
           <ul class="about_content">
             <p>{{article.content}}</p>
@@ -72,7 +74,9 @@
     },
     methods: {
       getArticleDetail(){
-        this.$axios.post("/blog/index/getArticleDetail",).then(res => {
+        this.$axios.post("/blog/index/getArticleDetail", {
+          articleId: this.$route.query.articleId
+        }).then(res => {
           this.article = res.data.data;
         });
       },
@@ -115,7 +119,7 @@
           title: '',
           content: '',
           createTime: '',
-          updateTime:'',
+          updateTime: '',
           author: '',
           tags: [],
           visitCount: 0,
