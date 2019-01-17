@@ -38,7 +38,7 @@
 
           </ul>
           <p class="dateview">
-            <span>{{item.createTime}}</span>
+            <span>{{getTimeByStamp(item.createTime)}}</span>
             <span>作者：{{item.author}}</span>
             <span>阅读量：{{item.visitCount}}</span>
             <span>标签：<a href="" v-for="tag in item.tags">[{{tag}}]</a></span>
@@ -62,7 +62,7 @@
 
 
         <div class="ad">
-          <img src="../../static/images/erwm.jpg" height="200" width="250"/>
+          <img src="static/images/erwm.jpg" height="200" width="250"/>
         </div>
 
       </div>
@@ -110,6 +110,19 @@
         this.$axios.post("/blog/index/getThemeInfo",).then(res => {
           this.theme = res.data.data;
         });
+      },
+      getTimeByStamp (timeStamp) {
+        const timeFilter = (date, split) => {
+          return (date < 10) ? '0' + date + split : date + split
+        }
+        const date = new Date(timeStamp)
+        const Y = date.getFullYear() + '-'
+        const M = timeFilter(date.getMonth() + 1, '-')
+        const D = timeFilter(date.getDate(), ' ')
+        const h = timeFilter(date.getHours(), ':')
+        const m = timeFilter(date.getMinutes(), ':')
+        const s = timeFilter(date.getSeconds(), '')
+        return [Y, M, D, h, m, s].join('')
       }
     },
     data () {

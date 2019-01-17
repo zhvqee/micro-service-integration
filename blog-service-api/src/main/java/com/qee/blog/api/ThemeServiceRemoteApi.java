@@ -16,4 +16,12 @@ public interface ThemeServiceRemoteApi {
      */
     @RequestMapping(value = "/getTheme", method = RequestMethod.GET)
     Theme getTheme();
+
+    /**
+     * 设置主题
+     * @param theme
+     * @return
+     */
+    @RequestMapping(value = "/setTheme", method = RequestMethod.GET)
+    int setTheme(Theme theme);
 }

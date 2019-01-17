@@ -24,6 +24,8 @@
         <module>blog-qee-web</module>
         <module>blog-service-compose</module>
         <module>blog-front-web</module>
+        <module>blog-ms-web</module>
+        <module>leeqee-ms-web</module>
     </modules>
 
     <name>micro-service-integration</name>

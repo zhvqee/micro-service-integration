@@ -34,6 +34,15 @@ public interface AriticleServiceRemoteApi {
      * @param articleId
      * @return
      */
-    @RequestMapping(value = "/getArticleDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/getArticleDetail", method = RequestMethod.POST)
     Article getArticleDetail(Integer articleId);
+
+    /**
+     * 编辑文章
+     * @param article
+     * @return
+     */
+    @RequestMapping(value = "/getArticleDetail", method = RequestMethod.POST)
+    int addOrEditArticle(Article article);
+
 }
