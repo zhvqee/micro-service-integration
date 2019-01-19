@@ -3,9 +3,9 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+var proxyConfig = require('./proxy')
 module.exports = {
-  dev: {
+ /* dev: {
 
     // Paths
     assetsSubDirectory: 'static',
@@ -20,10 +20,10 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
-    /**
+
+    /!**
      * Source Maps
-     */
+     *!/
 
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'cheap-module-eval-source-map',
@@ -35,6 +35,19 @@ module.exports = {
 
     cssSourceMap: true
   },
+*/
+
+  dev: {
+    host: 'localhost',
+    env: require('./dev.env'),
+    port: 8080,
+    autoOpenBrowser: true,
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: proxyConfig.proxy,
+    cssSourceMap: false
+  },
+
 
   build: {
     // Template for index.html

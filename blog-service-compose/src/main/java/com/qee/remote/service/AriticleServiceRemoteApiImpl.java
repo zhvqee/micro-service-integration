@@ -52,6 +52,11 @@ public class AriticleServiceRemoteApiImpl implements AriticleServiceRemoteApi {
         return article;
     }
 
+    @Override
+    public int addOrEditArticle(Article article) {
+        return 0;
+    }
+
     String getContent() {
         Random random = new Random();
         StringBuilder builder = new StringBuilder();

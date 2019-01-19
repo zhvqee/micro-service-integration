@@ -32,4 +32,9 @@ public class ThemeServiceRemoteApiImpl implements ThemeServiceRemoteApi {
 
         return theme;
     }
+
+    @Override
+    public int setTheme(Theme theme) {
+        return 0;
+    }
 }

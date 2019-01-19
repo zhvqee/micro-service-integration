@@ -42,7 +42,7 @@ public interface AriticleServiceRemoteApi {
      * @param article
      * @return
      */
-    @RequestMapping(value = "/getArticleDetail", method = RequestMethod.POST)
+    @RequestMapping(value = "/addOrEditArticle", method = RequestMethod.POST)
     int addOrEditArticle(Article article);
 
 }
