@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * Created by hzzhuqi1 on 2017/5/22.
  */
-/*@EnableCircuitBreaker
-@EnableDiscoveryClient*/
+@EnableCircuitBreaker
+@EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.qee"})
 public class BlogProviderApplication {
