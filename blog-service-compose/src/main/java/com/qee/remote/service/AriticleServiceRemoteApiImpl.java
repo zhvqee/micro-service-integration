@@ -2,68 +2,75 @@ package com.qee.remote.service;
 
 import com.qee.blog.api.AriticleServiceRemoteApi;
 import com.qee.blog.model.Article;
+import com.qee.mybatis.mapper.ArticleMapper;
+import com.qee.util.FastJsonUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by zhuqi on 2018/12/31.
  */
 @RestController
 public class AriticleServiceRemoteApiImpl implements AriticleServiceRemoteApi {
+
+    @Autowired
+    private ArticleMapper articleMapper;
+
     @Override
     public List<Article> getAllArticles() {
         List<Article> result = new ArrayList<Article>();
-        for (int i = 1; i <= 2; i++) {
-            Article article = new Article();
-            article.setArticleId(i);
-            article.setTitle("标题" + i);
-            article.setContent(getContent());
-            article.setAuthor("bird");
-            article.setTags(Arrays.asList("java", "分布式"));
-            article.setCreateTime(new Timestamp(System.currentTimeMillis()));
-            article.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-            article.setVisitCount(new Random().nextInt(5000));
-            result.add(article);
+        List<Article> allArticles = articleMapper.getAllArticles();
+        if(CollectionUtils.isEmpty(allArticles)){
+            return result;
         }
-        return result;
+        for(Article article: allArticles){
+            List<String> tagsList = FastJsonUtil.parseList(article.getTagsStr(), String.class);
+            article.setTags(tagsList);
+        }
+        return allArticles;
     }
 
     @Override
     public List<Article> getArticleBySubjectId(String subjectId) {
-        return null;
+        List<Article> allArticles = getAllArticles();
+        if("djl".equals(subjectId)){
+            Collections.sort(allArticles, new Comparator<Article>() {
+                @Override
+                public int compare(Article o1, Article o2) {
+                    return o2.getVisitCount().compareTo(o1.getVisitCount());
+                }
+            });
+            return new ArrayList<>(allArticles.subList(0,Math.min(10,allArticles.size())));
+        }else if("phb".equals(subjectId)){
+            Collections.sort(allArticles, new Comparator<Article>() {
+                @Override
+                public int compare(Article o1, Article o2) {
+                    return o2.getUpdateTime().compareTo(o2.getUpdateTime());
+                }
+            });
+            return new ArrayList<>(allArticles.subList(0,Math.min(10,allArticles.size())));
+        }
+        return new ArrayList<>(allArticles.subList(0,Math.min(10,allArticles.size())));
     }
 
     @Override
-    public Article getArticleDetail(Integer articleId) {
-        Article article = new Article();
-        article.setArticleId(articleId);
-        article.setTitle("文章内容");
-        article.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        article.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-        article.setContent("11111111");
-        article.setAuthor("bird");
-        article.setVisitCount(1000);
-        article.setTags(Arrays.asList("java"));
-        return article;
+    public Article getArticleDetail(Long articleId) {
+       return articleMapper.getArticleById(articleId);
     }
 
     @Override
     public int addOrEditArticle(Article article) {
-        return 0;
+        article.setTagsStr(FastJsonUtil.toJSONString(article.getTags()));
+        if(article.getArticleId()==null){
+            articleMapper.insertArticle(article);
+        }
+        return articleMapper.updateArticle(article);
     }
 
-    String getContent() {
-        Random random = new Random();
-        StringBuilder builder = new StringBuilder();
-        int nextInt = random.nextInt(2);
-        for (int i = 0; i < nextInt; i++) {
-            builder.append("这是文章内容");
-        }
-        return builder.toString();
-    }
 }

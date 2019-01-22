@@ -19,7 +19,7 @@ public class Article implements Serializable {
     /**
      * 文章的Id
      */
-    private Integer articleId;
+    private Long articleId;
 
     /**
      * 标题
@@ -35,6 +35,8 @@ public class Article implements Serializable {
      * 作者
      */
     private String author;
+
+    private String introduce;
 
     /**
      * 创建时间
@@ -55,4 +57,6 @@ public class Article implements Serializable {
      * 标签
      */
     private List<String> tags;
+
+    private String tagsStr;
 }

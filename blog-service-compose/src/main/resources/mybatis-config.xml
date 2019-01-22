@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<!-- 设置sql执行的超时时间 -->
+		<setting name="defaultStatementTimeout" value="10" />
+        <setting name="localCacheScope" value="STATEMENT"/>
+	</settings>
+</configuration>
