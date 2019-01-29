@@ -20,6 +20,8 @@
       </el-table-column>
       <el-table-column prop="tags" label="标签" width="150">
       </el-table-column>
+      <el-table-column prop="tagsStr" label="标签2" width="150">
+      </el-table-column>
       <el-table-column prop="visitCount" label="阅读量" width="100">
       </el-table-column>
 
@@ -61,8 +63,7 @@
           <el-input v-model="editForm.title" auto-complete="off"></el-input>
         </el-form-item>
 
-        <el-form-item label="标签">
-
+        <el-form-item label="标签1">
           <el-select v-model="editForm.tags" multiple placeholder="请选择">
             <el-option
               v-for="item in tagsList"
@@ -72,6 +73,11 @@
             </el-option>
           </el-select>
         </el-form-item>
+
+        <el-form-item label="标签2">
+          <el-input v-model="editForm.tagsStr"></el-input>
+        </el-form-item>
+
 
         <el-form-item label="介绍">
           <el-input v-model="editForm.introduce"></el-input>
@@ -118,6 +124,7 @@
           articleId: '',
           title: '',
           tags: [],
+          tagsStr:'',
           introduce: '',
           content: '',
           author: '',
@@ -166,10 +173,11 @@
             "articleId": this.editForm.articleId,
             "title": this.editForm.title,
             "tags": this.editForm.tags,
+            "tagsStr": this.editForm.tagsStr,
             "introduce": this.editForm.introduce,
             "content": this.editForm.content
           }).then(res => {
-            this.articleList = res.data.data;
+            this.getAllArticleList()();
           });
 
         });

@@ -59,4 +59,6 @@ public class Article implements Serializable {
     private List<String> tags;
 
     private String tagsStr;
+
+    private String tagsStr2;
 }

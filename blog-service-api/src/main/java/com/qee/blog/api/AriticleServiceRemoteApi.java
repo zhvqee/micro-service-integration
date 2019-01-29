@@ -1,8 +1,10 @@
 package com.qee.blog.api;
 
 import com.qee.blog.model.Article;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public interface AriticleServiceRemoteApi {
      * @return
      */
     @RequestMapping(value = "/getArticleBySubjectId", method = RequestMethod.GET)
-    List<Article> getArticleBySubjectId(String subjectId);
+    List<Article> getArticleBySubjectId(@RequestParam(name = "subjectId") String subjectId);
 
 
     /**
@@ -35,7 +37,7 @@ public interface AriticleServiceRemoteApi {
      * @return
      */
     @RequestMapping(value = "/getArticleDetail", method = RequestMethod.POST)
-    Article getArticleDetail(Long articleId);
+    Article getArticleDetail(@RequestParam(name = "articleId") Long articleId);
 
     /**
      * 编辑文章
@@ -43,6 +45,6 @@ public interface AriticleServiceRemoteApi {
      * @return
      */
     @RequestMapping(value = "/addOrEditArticle", method = RequestMethod.POST)
-    int addOrEditArticle(Article article);
+    int addOrEditArticle(@RequestBody Article article);
 
 }

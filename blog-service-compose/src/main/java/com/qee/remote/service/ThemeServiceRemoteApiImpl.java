@@ -20,7 +20,7 @@ public class ThemeServiceRemoteApiImpl implements ThemeServiceRemoteApi {
         Theme theme = new Theme();
         List<SubjectCatalogue> topCatalogueList = new ArrayList<SubjectCatalogue>();
         topCatalogueList.add(new SubjectCatalogue("left-1", "我的笔记", "/", null));
-        topCatalogueList.add(new SubjectCatalogue("left-2", "生活录", "/error", null));
+       // topCatalogueList.add(new SubjectCatalogue("left-2", "生活录", "/error", null));
         theme.setTopSubjectCatalogueList(topCatalogueList);
 
         List<SubjectCatalogue> rightCatalogueList = new ArrayList<SubjectCatalogue>();

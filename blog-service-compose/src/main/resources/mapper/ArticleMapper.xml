@@ -10,6 +10,7 @@
         <result column="visitCount" property="visitCount" jdbcType="DECIMAL"/>
 
         <result column="tags" property="tagsStr" jdbcType="VARCHAR"/>
+        <result column="tags2" property="tagsStr2" jdbcType="VARCHAR"/>
 
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -25,8 +26,8 @@
     </select>
 
     <insert id="insertArticle" parameterType="com.qee.blog.model.Article" >
-        insert into tb_articles(title,introduce,content,author,tags)
-        VALUES (#{title},#{introduce},#{content},#{author},#{tagsStr})
+        insert into tb_articles(title,introduce,content,author,tags,tags2)
+        VALUES (#{title},#{introduce},#{content},#{author},#{tagsStr},#{tagsStr2})
     </insert>
 
 
@@ -47,6 +48,9 @@
            </if>
            <if test="tagsStr !=null">
                tags=#{tagsStr},
+           </if>
+           <if test="tagsStr2 !=null">
+               tags2=#{tagsStr2},
            </if>
        </set>
         WHERE id = #{articleId}

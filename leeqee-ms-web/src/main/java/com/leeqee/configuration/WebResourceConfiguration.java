@@ -16,6 +16,9 @@ public class WebResourceConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
+        registry.addViewController("/ArticleListPage").setViewName("index");
+        registry.addViewController("/IndexConfiguration").setViewName("index");
+
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.addViewControllers(registry);
     }

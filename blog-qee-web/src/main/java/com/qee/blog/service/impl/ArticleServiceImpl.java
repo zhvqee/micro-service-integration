@@ -29,7 +29,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticleDetail(Integer articleId) {
+    public Article getArticleDetail(Long articleId) {
         return ariticleRemoteService.getArticleDetail(articleId);
 
     }

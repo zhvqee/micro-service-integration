@@ -30,8 +30,7 @@
           <figure><img v-if="item.images!='' && item.images!=null" src="item.images">
           </figure>
           <ul>
-            <p> {{item.content}}</p>
-
+            <p v-html="item.introduce"></p>
             <router-link :to="{path: 'detail', query: {articleId: item.articleId }}">
               <a class="readmore">阅读全文&gt;&gt;</a>
             </router-link>
@@ -47,6 +46,7 @@
 
 
       </div>
+<!--
 
       <div class="r_box f_r">
 
@@ -66,6 +66,7 @@
         </div>
 
       </div>
+-->
 
 
       <!-- container代码 结束 -->

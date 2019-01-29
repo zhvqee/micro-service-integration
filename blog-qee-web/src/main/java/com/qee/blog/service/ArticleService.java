@@ -30,5 +30,5 @@ public interface ArticleService {
      * @param articleId
      * @return
      */
-    Article getArticleDetail(Integer articleId);
+    Article getArticleDetail(Long articleId);
 }

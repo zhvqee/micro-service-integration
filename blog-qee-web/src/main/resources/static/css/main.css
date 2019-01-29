@@ -16,7 +16,8 @@
 }
 .about_content p {
 	margin-bottom: 15px;
-	text-indent: 2em
+	text-indent: 2em;
+  text-align: left;
 }
 .about_content p img {
 	margin: auto
@@ -109,7 +110,7 @@
 .nextinfos {
 	text-align: center;
 }
-/* ¶¯Ì¬ */
+/* ?��??��?? */
 .news_list {
 	margin: 10px 0;
 	overflow: hidden
@@ -135,7 +136,7 @@
 	color: #f00;
 	text-decoration: underline
 }
-/* ·ÖÒ³ */
+/* �?���? */
 .pagelist {
 	text-align: center;
 	color: #666;
@@ -228,7 +229,7 @@ a.readmore {
 .pingl.f_r {
 	padding: 0;
 }
-/* ÎÄ×ÖÍ¼Æ¬ÁÐ±í*/
+/* ������?��??��?��??*/
 .dtxw {
 	overflow: hidden;
 	margin: 30px auto
@@ -331,7 +332,7 @@ a.readmore {
 .dttext {
 	line-height: 24px
 }
-/* Í¼Æ¬Õ¹Ê¾ */
+/* ��?��??�鹿��?? */
 .lispic {
 	padding: 20px 0;
 	overflow: hidden;

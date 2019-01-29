@@ -31,11 +31,11 @@
             <p class="a_title">{{article.title}}</p>
             <p class="p_title"></p>
             <p class="box_p">
-              <span>发布时间：{{getTimeByStamp(article.updateTime)}}</span><span>作者：{{article.author}}</span><span>标签：{{article.tags}}</span><span>点击：{{article.visitCount}}</span>
+              <span>发布时间：{{getTimeByStamp(article.updateTime)}}</span><span>作者：{{article.author}}</span><span>标签：{{article.tagsStr}}</span><span>点击：{{article.visitCount}}</span>
             </p>
           </div>
           <ul class="about_content">
-            <p>{{article.content}}</p>
+            <p v-html="article.content"></p>
           </ul>
         </div>
 

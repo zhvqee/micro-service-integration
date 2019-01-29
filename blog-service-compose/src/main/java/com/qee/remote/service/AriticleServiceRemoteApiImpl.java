@@ -6,6 +6,9 @@ import com.qee.mybatis.mapper.ArticleMapper;
 import com.qee.util.FastJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -30,14 +33,14 @@ public class AriticleServiceRemoteApiImpl implements AriticleServiceRemoteApi {
             return result;
         }
         for(Article article: allArticles){
-            List<String> tagsList = FastJsonUtil.parseList(article.getTagsStr(), String.class);
+            List<String> tagsList = FastJsonUtil.parseList(article.getTagsStr2(), String.class);
             article.setTags(tagsList);
         }
         return allArticles;
     }
 
     @Override
-    public List<Article> getArticleBySubjectId(String subjectId) {
+    public List<Article> getArticleBySubjectId(@RequestParam(name = "subjectId") String subjectId) {
         List<Article> allArticles = getAllArticles();
         if("djl".equals(subjectId)){
             Collections.sort(allArticles, new Comparator<Article>() {
@@ -60,13 +63,29 @@ public class AriticleServiceRemoteApiImpl implements AriticleServiceRemoteApi {
     }
 
     @Override
-    public Article getArticleDetail(Long articleId) {
-       return articleMapper.getArticleById(articleId);
+    public Article getArticleDetail(@RequestParam(name = "articleId")Long articleId) {
+        Article article = articleMapper.getArticleById(articleId);
+        if(article==null){
+            return null;
+        }
+        List<String> tagsList = FastJsonUtil.parseList(article.getTagsStr2(), String.class);
+        String tagStr=article.getTagsStr();
+        if(!CollectionUtils.isEmpty(tagsList)){
+            for(String tag: tagsList){
+                tagStr+=",";
+                tagStr+=tag;
+            }
+        }
+        article.setTagsStr(tagStr);
+        return article;
     }
 
     @Override
-    public int addOrEditArticle(Article article) {
-        article.setTagsStr(FastJsonUtil.toJSONString(article.getTags()));
+    public int addOrEditArticle(@RequestBody  Article article) {
+        article.setTagsStr2(FastJsonUtil.toJSONString(article.getTags()));
+        if(StringUtils.isEmpty(article.getAuthor())){
+            article.setAuthor("记录者");
+        }
         if(article.getArticleId()==null){
             articleMapper.insertArticle(article);
         }
